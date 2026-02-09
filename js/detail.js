@@ -124,7 +124,7 @@ var detail = {
                                     <a href="javascript:detail.rdfTS('${uri}')"> RDF download</a>
                                 </p>
                                 <hr>`;
-                        page.updateSharingTexts(pL);
+                        //page.updateSharingTexts(pL);
                         break;
                     case 'dataViewer': //*********************########################################################
                         let projDV_Arno = ['geolunit', 'lith', 'time'];
@@ -392,9 +392,9 @@ var detail = {
             data.results.bindings.forEach((i) => {
                 let color = i.sColor ? ' style="background-color:' + i.sColor.value + ';" ' : '';
                 if (i.top.value == 'true') {
-                    a.push('<div' + color + '><a ' + AT + 'data-toggle="tooltip" data-placement="right" data-html="true" title="<h4>' + i.Label.value + '</h4>' + i.Desc.value.slice(0, 230) + '.." href="' + page.BASE + '?uri=' + i.s.value + '&lang=' + lang.ID + '"><strong>' + i.Label.value + '</strong></a> (&#8658; top concept)</div>');
+                    a.push('<div' + color + '><a ' + AT + 'data-toggle="tooltip" data-placement="right" data-html="true" title="<h4>' + i.Label.value + '</h4>' + i.Desc.value.slice(0, 230) + '.." href="' + page.BASE + '?uri=' + i.s.value + '&lang=' + lang.ID + '"><strong>' + detail.trnc(i.Label.value) + '</strong></a> (&#8658; top concept)</div>');
                 } else {
-                    a.push('<div' + color + '><a ' + AT + 'data-toggle="tooltip" data-placement="right" data-html="true" title="<h4>' + i.Label.value + '</h4>' + i.Desc.value.slice(0, 230) + '.." href="' + page.BASE + '?uri=' + i.s.value + '&lang=' + lang.ID + '">' + i.Label.value + '</a></div>');
+                    a.push('<div' + color + '><a ' + AT + 'data-toggle="tooltip" data-placement="right" data-html="true" title="<h4>' + i.Label.value + '</h4>' + i.Desc.value.slice(0, 230) + '.." href="' + page.BASE + '?uri=' + i.s.value + '&lang=' + lang.ID + '">' + detail.trnc(i.Label.value) + '</a></div>');
                 }
 
             });
@@ -417,6 +417,16 @@ var detail = {
             });
 
         });
+    },
+
+    trnc: function (label) {
+        return label.split(" ").map(function(word) {
+            if (word.length > 14) {
+            // Keep 10 characters and add ".." for a total of 14
+            return word.substring(0, 12) + "..";
+            }
+            return word;
+        }).join(" ");
     },
 
     insertConceptBrowser: function (div, uri, offset) {

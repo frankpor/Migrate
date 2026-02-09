@@ -105,9 +105,9 @@ var page = {
             }
             document.documentElement.setAttribute('lang', USER_LANG);
 
-            this.updateSharingUrl($('#fbShare'));
+            /* this.updateSharingUrl($('#fbShare'));
             this.updateSharingUrl($('#twShare'));
-            this.updateSharingUrl($('#liShare'));
+            this.updateSharingUrl($('#liShare')); */
 
             this.isEmbedded = urlParams.has('embedded');
             if (this.isEmbedded || ((screen.width < 1000) && (window.location.search == null || window.location.search == "" || urlParams.has('search')))) {
@@ -136,7 +136,7 @@ var page = {
             config.init(true, USER_LANG).then(startup);
         }
     },
-    updateSharingUrl: function (e) {
+    /* updateSharingUrl: function (e) {
         var v = encodeURIComponent(this.uriParameter != null ? this.uriParameter : window.location.href);
         var s = e.attr("href").replace("wwwgeolbanet", v).replace("wwwgeolbanet", v);
         e.attr("href", s);
@@ -150,7 +150,7 @@ var page = {
         var v = encodeURIComponent(title);
         var s = e.attr("href").replace("GBA%20Thesaurus", v).replace("GBA%20Thesaurus", v);
         e.attr("href", s);
-    },
+    }, */
     setLang: function (lang) {
         if (location.href.indexOf('lang=') != -1) {
             if (lang == 'de') {
@@ -275,8 +275,8 @@ var page = {
                         a.topConcepts.value.split('$').join('&lang=' + lang.ID + '">').split('|').join('</a>, <a href="' + page.BASE + '?uri=') + '</a><br>');
                     //add concept schemes + topConcepts to project descriptions
                     readMoreDiv.append('<h4>' + a.cL.value + ' (' + a.count.value +
-                        '):</h4><a href="' + page.BASE + '?uri=' + a.topConcepts.value.split('$').join('&lang=' + lang.ID + '">').split('|').join('</a>, <a href="' +
-                            page.BASE + '?uri=') + '</a><br>' + a.desc.value + '<br><br>');
+                        '):</h4>' + a.desc.value + '<br>top concept:&nbsp;<a href="' + page.BASE + '?uri=' + a.topConcepts.value.split('$').join('&lang=' + lang.ID + '">').split('|').join('</a>, <a href="' +
+                            page.BASE + '?uri=') + '</a><br><br>');
                 }
 
                 readMoreDiv.append(`
