@@ -92,13 +92,13 @@
 
   function drawControls() {
     const text = `
-        <p class="m-0 font-weight-bold">Navigation:</p>
+        <p class="m-0 font-weight-bold">How to Navigate:</p>
         <p class="m-0">
-          <span class="font-italic">left mouse button: </span>
-          click on a node to open and close tree secions</p>
+          <span class="font-italic">Left Click: </span>
+          Click on a node to expand or collapse its child sections.</p>
         <p class="m-0">
-          <span class="font-italic">right mouse button: </span>
-          click on a node to get to the corresponding thesaurus page
+          <span class="font-italic">Right Click: </span>
+          View its thesaurus page.
         </p>
     `;
     document.getElementById("controls").innerHTML = text;

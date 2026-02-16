@@ -348,14 +348,14 @@
 
   function drawControls() {
     const text = `
-        <p class="m-0 font-weight-bold">Navigation:</p>
+        <p class="m-0 font-weight-bold">How to Navigate:</p>
         <p class="m-0">
-          <span class="font-italic">left mouse button: </span>
-          click on a circle to zoom in. click on the background to zoom out
+          <span class="font-italic">Left Click: </span>
+          Click a circle (node) to zoom into that group. Click the background to return to the previous level.
         </p>
         <p class="m-0">
-          <span class="font-italic">right mouse button: </span>
-          click on a circle to get to the corresponding thesaurus page
+          <span class="font-italic">Right Click: </span>
+          View its thesaurus page.
         </p>
     `;
     document.getElementById("controls").innerHTML = text;

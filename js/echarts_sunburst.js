@@ -47,14 +47,14 @@
 
   function drawControls() {
     const text = `
-        <p class="m-0 font-weight-bold">Navigation:</p>
+        <p class="m-0 font-weight-bold">How to Navigate:</p>
         <p class="m-0">
-          <span class="font-italic">left mouse button: </span>
-          click on a pie to zoom in. click on the center to zoom out
+          <span class="font-italic">Left Click: </span>
+          Click on a segment to zoom into that section. Click the center to go back to the previous level.
         </p>
         <p class="m-0">
-          <span class="font-italic">right mouse button: </span>
-          click on a circle to get to the corresponding thesaurus page
+          <span class="font-italic">Right Click: </span>
+          View its thesaurus page.
         </p>
     `;
     document.getElementById("controls").innerHTML = text;
