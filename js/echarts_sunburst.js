@@ -14,6 +14,9 @@
   }
   new ResizeObserver(outputsize).observe(chartDom);
 
+  const baseNodeLabel = data.label;
+  drawStack();
+
   data = data.children;
   const baseNodeLabel = data.label;
   drawStack();
