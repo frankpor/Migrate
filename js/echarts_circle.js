@@ -1,5 +1,5 @@
 ﻿eCharts_circleChart = function (rawData, elementId) {
-  let allowedMaxDepth = 5;
+  let allowedMaxDepth = 5; //at the moment not relevant, because from the sparql search querry a maximum detph of 4 comes to this function
   let chartDom = document.getElementById(elementId);
   let myChart = echarts.init(chartDom, null, {
     renderer: "svg",

@@ -15,6 +15,8 @@
   new ResizeObserver(outputsize).observe(chartDom);
 
   data = data.children;
+  const baseNodeLabel = data.label;
+  drawStack();
 
   const option = {
     series: {
@@ -61,6 +63,11 @@
   }
 
   drawControls();
+
+  function drawStack() {
+    const text = baseNodeLabel;
+    document.getElementById("stackContent").innerHTML = text;
+  }
 
   option && myChart.setOption(option);
   myChart.on("mouseup", { seriesIndex: 0 }, function (params) {
