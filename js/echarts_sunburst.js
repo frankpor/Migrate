@@ -18,8 +18,6 @@
   drawStack();
 
   data = data.children;
-  const baseNodeLabel = data.label;
-  drawStack();
 
   const option = {
     series: {
