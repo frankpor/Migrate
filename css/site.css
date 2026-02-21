@@ -499,7 +499,7 @@ figure {
         }
 
         .allConceptsCards div a {
-            color: rgb(5, 46, 55) !important;
+            /* color: rgb(5, 46, 55) !important; */
             padding: 5px;
             font-size: 0.9rem;
             border-bottom: none !important;

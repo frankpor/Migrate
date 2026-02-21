@@ -389,13 +389,12 @@ var detail = {
             </div>
                 `);
             }
-            data.results.bindings.forEach((i) => {
-                let color = i.sColor ? ' style="background-color:' + i.sColor.value + ';" ' : '';
-                if (i.top.value == 'true') {
-                    a.push('<div' + color + '><a ' + AT + 'data-toggle="tooltip" data-placement="right" data-html="true" title="<h4>' + i.Label.value + '</h4>' + i.Desc.value.slice(0, 230) + '.." href="' + page.BASE + '?uri=' + i.s.value + '&lang=' + lang.ID + '"><strong>' + detail.trnc(i.Label.value) + '</strong></a> (&#8658; top concept)</div>');
-                } else {
-                    a.push('<div' + color + '><a ' + AT + 'data-toggle="tooltip" data-placement="right" data-html="true" title="<h4>' + i.Label.value + '</h4>' + i.Desc.value.slice(0, 230) + '.." href="' + page.BASE + '?uri=' + i.s.value + '&lang=' + lang.ID + '">' + detail.trnc(i.Label.value) + '</a></div>');
-                }
+
+            //console.log(data.results.bindings);
+            ([...new Map(data.results.bindings.map(({ s, sColor, Label, Desc }) => ({ s, sColor, Label, Desc })).map(item => [item.s.value, item])).values()]).forEach((i) => {
+                let bgcolor = i.sColor ? ' style="background-color:' + i.sColor.value + ';" ' : '';
+                let color = i.sColor ? ' style="color:' + (detail.isDarkColor(i.sColor.value) ? 'white' : 'black') + ';" ' : '';
+                a.push('<div' + bgcolor + '><a ' + AT + color + 'data-toggle="tooltip" data-placement="right" data-html="true" title="<h4>' + i.Label.value + '</h4>' + i.Desc.value.slice(0, 230) + '.." href="' + page.BASE + '?uri=' + i.s.value + '&lang=' + lang.ID + '">' + detail.trnc(i.Label.value) + '</a></div>');
 
             });
             let links = a.join('\n\n');
@@ -427,6 +426,21 @@ var detail = {
             }
             return word;
         }).join(" ");
+    },
+
+    isDarkColor: function (hexColor) {
+        // Remove # if present
+        const hex = hexColor.replace('#', '');
+        
+        // Parse hex to RGB
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+        
+        // Calculate luminance - if < 0.5, too dark for black text
+        const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+        
+        return luminance < 0.45;
     },
 
     insertConceptBrowser: function (div, uri, offset) {
