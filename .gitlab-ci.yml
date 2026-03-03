@@ -1,0 +1,45 @@
+stages:
+  - lint
+  - deploy
+  - release
+
+variables:
+  NODE_ENV: development
+  GIT_DEPTH: "0"
+
+lint:
+  stage: lint
+  image: node:22-alpine
+  before_script:
+    - npm ci
+  script:
+    - npm run lint
+  only:
+    - merge_requests
+    - main
+
+pages:
+  stage: deploy
+  image: debian:stable-slim
+  script:
+    - mkdir -p public
+    # Copy everything in the repo into public/, excluding .git and public itself
+    - tar --exclude=./public --exclude=./.git -cf - . | tar -xf - -C public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+
+release:
+  stage: release
+  image: node:22
+  before_script:
+    - npm ci
+    # Debug: verify that CI is using the GitLab repo, not GitHub
+    - git remote -v
+    - echo "CI_REPOSITORY_URL = $CI_REPOSITORY_URL"
+  script:
+    - npx semantic-release
+  only:
+    - main
