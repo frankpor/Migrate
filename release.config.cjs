@@ -4,7 +4,7 @@ module.exports = {
 
   repositoryUrl:
     process.env.CI_REPOSITORY_URL ||
-    "https://gitlab.geosphere.at/gis/test/devops.git",
+    "https://gitlab.geosphere.at/geoinformation/thesaurus/geosphere-thesaurus.git",
 
   plugins: [
     [
