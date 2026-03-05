@@ -15,7 +15,7 @@
   new ResizeObserver(outputsize).observe(chartDom);
 
   data = prepData(rawData);
-
+  console.log(data);
   const option = {
     tooltip: {
       trigger: "item",
@@ -74,8 +74,11 @@
 
     for (let i = 0; i < node.children.length; i++) {
       const childnode = node.children[i];
-      if (childnode.children) {
-        addColor(childnode);
+
+      if (childnode) {
+        for (let i = 0; i < childnode.length; i++) {
+          addColor(childnode[i]);
+        }
       }
     }
   }
