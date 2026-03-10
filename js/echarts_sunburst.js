@@ -24,6 +24,7 @@
       type: "sunburst",
       data: data,
       radius: [0, "95%"],
+      sort: null,
       label: {
         show: true,
       },
