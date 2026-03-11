@@ -28,6 +28,7 @@
       label: {
         show: true,
         align: "right",
+        distance: 10,
       },
       itemStyle: {
         borderWidth: 2,
@@ -43,7 +44,7 @@
     tooltip: {
       formatter: function (params) {
         if (params.treePathInfo?.length === 1) {
-          return "Click to zoom out " + baseNodeLabel;
+          return "Click to zoom out";
         }
         return `${params.name}`;
       },
