@@ -6,9 +6,8 @@
     e.preventDefault();
   };
 
-  let myChart = echarts.init(chartDom, null, {
-    renderer: "svg",
-  });
+  let myChart = echarts.init(chartDom);
+
   function outputsize() {
     myChart.resize();
   }
@@ -25,18 +24,20 @@
       data: data,
       radius: [0, "95%"],
       sort: null,
+      coordinateSystem: "matrix",
       label: {
         show: true,
+        align: "right",
       },
       itemStyle: {
         borderWidth: 2,
         color: "#fff",
       },
-      label: {
-        align: "right",
-      },
       emphasis: {
         focus: "ancestor",
+      },
+      labelLayout: {
+        hideOverlap: true,
       },
     },
     tooltip: {
