@@ -204,7 +204,7 @@ var page = {
   },
 
   openFeedBack: function () {
-    let email = "thesaurus@geologie.ac.at";
+    let email = " thesaurus@geosphere.at";
     let subject = "Anfrage";
     let body = "";
     if ($("#uri").length > 0) {
