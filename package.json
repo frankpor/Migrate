@@ -5,21 +5,30 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky",
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frankpor/Migrate.git"
+    "url": "https://gitlab.geosphere.at/geoinformation/thesaurus/geosphere-thesaurus.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/frankpor/Migrate/issues"
+    "url": "https://gitlab.geosphere.at/geoinformation/thesaurus/geosphere-thesaurus/-/issues"
   },
-  "homepage": "https://github.com/frankpor/Migrate#readme",
+  "homepage": "https://resource.geosphere.at",
   "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/gitlab": "^13.3.2",
+    "@semantic-release/release-notes-generator": "^14.1.0",
     "eslint": "^10.0.3",
-    "globals": "^17.4.0"
+    "globals": "^17.4.0",
+    "husky": "^9.1.7",
+    "semantic-release": "^25.0.3"
   }
 }
