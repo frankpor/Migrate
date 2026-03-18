@@ -1,0 +1,25 @@
+{
+  "name": "migrate",
+  "version": "1.0.0",
+  "description": "description",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankpor/Migrate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frankpor/Migrate/issues"
+  },
+  "homepage": "https://github.com/frankpor/Migrate#readme",
+  "devDependencies": {
+    "eslint": "^10.0.3",
+    "globals": "^17.4.0"
+  }
+}
