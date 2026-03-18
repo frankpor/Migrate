@@ -1,0 +1,20 @@
+name: Sync to GitLab devops
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push main to GitLab
+        run: |
+          git remote add gitlab "${{ secrets.GITLAB_REMOTE_URL }}"
+          git push gitlab main
